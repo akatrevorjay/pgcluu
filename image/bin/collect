@@ -1,0 +1,2 @@
+#!/bin/bash
+exec pgcluu_collectd "$PGCLUU_STATS_DIR" -h "$POSTGRES_HOSTNAME" -U "$POSTGRES_USERNAME" -d "$POSTGRES_DB" "$@"

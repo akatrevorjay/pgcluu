@@ -1,0 +1,11 @@
+#!/bin/bash
+set -eo pipefail
+
+printf 'Hit CTRL-\ (SIGQUIT) to stop the collection and generate the report.\n' >&2
+
+set -xv
+
+collect -i 60
+
+gen-report
+
