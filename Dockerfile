@@ -4,7 +4,8 @@ RUN lazy-apt \
     perl libgetopt-complete-perl libstorable-perl \
     libpq-dev \
     build-essential \
-    automake
+    automake \
+    postgresql-client
 
 ADD . .
 RUN set -exv \
@@ -16,13 +17,11 @@ ENV \
     PGCLUU_STATS_DIR="/data/stats" \
     PGCLUU_REPORT_DIR="/data/reports" \
     \
-    # TODO uri
-    POSTGRES_HOST=localhost \
-    POSTGRES_DB=postgres \
-    POSTGRES_USER=postgres \
-    POSTGRES_PASS=postgres
-
-RUN mkdir -pv "$PGCLUU_STATS_DIR" "$PGCLUU_REPORT_DIR"
+    PGHOSTADDR=localhost \
+    PGPORT=5432 \
+    PGDATABASE=postgres \
+    PGUSER=postgres \
+    PGPASS=postgres
 
 CMD oneshot
 

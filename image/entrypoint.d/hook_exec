@@ -1,0 +1,5 @@
+#!/bin/bash
+set -eo pipefail
+
+mkdir -pv "$PGCLUU_STATS_DIR" "$PGCLUU_REPORT_DIR"
+

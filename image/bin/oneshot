@@ -1,11 +1,13 @@
 #!/bin/bash
 set -eo pipefail
 
-printf 'Hit CTRL-\ (SIGQUIT) to stop the collection and generate the report.\n' >&2
+on_exit() {
+  gen-report
+}
+trap EXIT on_exit
 
 set -xv
 
-collect -i 60
-
-gen-report
+printf 'Hit CTRL-\ (SIGQUIT) to stop the collection and generate the report.\n'
+collect "$@"
 
