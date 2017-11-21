@@ -4,7 +4,7 @@ set -eo pipefail
 on_exit() {
   gen-report
 }
-trap EXIT on_exit
+trap on_exit EXIT
 
 set -xv
 
