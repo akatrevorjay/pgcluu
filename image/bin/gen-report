@@ -1,2 +1,3 @@
 #!/bin/bash
+mkdir -pv "$PGCLUU_REPORT_DIR" "$PGCLUU_STATS_DIR"
 exec pgcluu -o "$PGCLUU_REPORT_DIR" -i "$PGCLUU_STATS_DIR" "$@"
